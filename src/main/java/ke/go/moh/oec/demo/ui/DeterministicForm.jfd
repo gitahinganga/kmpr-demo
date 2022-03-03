@@ -1,0 +1,71 @@
+JFDML JFormDesigner: "7.0.5.3.411" Java: "11.0.15" encoding: "UTF-8"
+
+new FormModel {
+	"i18n.autoExternalize": true
+	"i18n.bundlePackage": "ke.go.moh.oec.demo.ui"
+	"i18n.bundleName": "strings"
+	"i18n.keyPrefix": "DeterministicForm"
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "fillx,hidemode 3"
+			"$columnConstraints": "[fill][fill][fill][grow]"
+			"$rowConstraints": "[][][]"
+		} ) {
+			name: "this"
+			"border": new javax.swing.border.TitledBorder( null, "i18nKey=DeterministicForm.this.border", 2, 0 )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": new FormMessage( null, "DeterministicForm.label1.text" )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 0,align left center,grow 0 0"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBoxIdentifierType"
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "Telephone No"
+					addElement( "Telephone No" )
+					addElement( "National ID" )
+					addElement( "NHIF No" )
+					addElement( "Huduma No" )
+					addElement( "Passport No" )
+					addElement( "Birth Certificate No" )
+					addElement( "Birth Notification No" )
+					addElement( "Alien ID" )
+					addElement( "NEMIS ID" )
+				}
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 0 3 1,aligny center,growy 0"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": new FormMessage( null, "DeterministicForm.label2.text" )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 1,align left center,grow 0 0"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textFieldIdentifier"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 1 3 1,aligny center,growy 0"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "buttonSearch"
+				"text": new FormMessage( null, "DeterministicForm.buttonSearch.text" )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "search", false ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 2"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "buttonClear"
+				"text": new FormMessage( null, "DeterministicForm.buttonClear.text" )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "clearFields", false ) )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "clearFields", false ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 2"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 665, 415 )
+		} )
+	}
+}

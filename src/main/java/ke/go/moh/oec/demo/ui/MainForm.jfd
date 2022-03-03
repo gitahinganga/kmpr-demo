@@ -1,0 +1,64 @@
+JFDML JFormDesigner: "7.0.5.3.411" Java: "11.0.15" encoding: "UTF-8"
+
+new FormModel {
+	"i18n.autoExternalize": true
+	"i18n.bundlePackage": "ke.go.moh.oec.demo.ui"
+	"i18n.bundleName": "strings"
+	"i18n.keyPrefix": "MainForm"
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "this"
+			add( new FormContainer( "javax.swing.JSplitPane", new FormLayoutManager( class javax.swing.JSplitPane ) ) {
+				name: "splitPane"
+				"dividerLocation": 225
+				"dividerSize": 2
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+					"$layoutConstraints": "fillx,hidemode 3"
+					"$columnConstraints": "[fill]"
+					"$rowConstraints": "[][][][]"
+				} ) {
+					name: "panel1"
+					"border": new javax.swing.border.TitledBorder( null, "i18nKey=MainForm.panel1.border", 2, 0 )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "buttonBiometric"
+						"text": new FormMessage( null, "MainForm.buttonBiometric.text" )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "searchBiometric", false ) )
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 0 0"
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "buttonDeterministic"
+						"text": new FormMessage( null, "MainForm.buttonDeterministic.text" )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "searchDeterministic", false ) )
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 0 1"
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "buttonProbabilistic"
+						"text": new FormMessage( null, "MainForm.buttonProbabilistic.text" )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "probabilistic", false ) )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "searchProbabilistic", false ) )
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 0 2"
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "buttonNewPerson"
+						"text": new FormMessage( null, "MainForm.buttonNewPerson.text" )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "createPerson", false ) )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "createPerson", false ) )
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 0 3"
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "left"
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}
