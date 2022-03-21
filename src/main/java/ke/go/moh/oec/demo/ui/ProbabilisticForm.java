@@ -39,6 +39,7 @@ public class ProbabilisticForm extends JPanel implements ResponseReceiver {
 		person.setSex(Utils.parseSex((String) comboBoxSex.getSelectedItem()));
 		person.setBirthdate(Utils.parseDate(textFieldDoB.getText()));
 		person.setMothersMiddleName(textFieldMotherName.getText());
+		person.setVillageName(textFieldPlaceOfBirth.getText());
 
 		PersonRequest personRequest = new PersonRequest();
 		personRequest.setPerson(person);
@@ -94,26 +95,29 @@ public class ProbabilisticForm extends JPanel implements ResponseReceiver {
 		textFieldDoB = new JTextField();
 		label6 = new JLabel();
 		textFieldMotherName = new JTextField();
+		label7 = new JLabel();
+		textFieldPlaceOfBirth = new JTextField();
 		buttonSearch = new JButton();
 		buttonClear = new JButton();
 
 		//======== this ========
 		setBorder(new TitledBorder(null, bundle.getString("ProbabilisticForm.this.border"), TitledBorder.CENTER, TitledBorder.DEFAULT_POSITION));
 		setLayout(new MigLayout(
-				"fillx,hidemode 3",
-				// columns
-				"[fill]" +
-						"[fill]" +
-						"[fill]" +
-						"[grow]",
-				// rows
-				"[]" +
-						"[]" +
-						"[]" +
-						"[]" +
-						"[]" +
-						"[]" +
-						"[]"));
+			"fillx,hidemode 3",
+			// columns
+			"[fill]" +
+			"[fill]" +
+			"[fill]" +
+			"[grow]",
+			// rows
+			"[]" +
+			"[]" +
+			"[]" +
+			"[]" +
+			"[]" +
+			"[]" +
+			"[]" +
+			"[]"));
 
 		//---- label1 ----
 		label1.setText(bundle.getString("ProbabilisticForm.label1.text"));
@@ -135,9 +139,10 @@ public class ProbabilisticForm extends JPanel implements ResponseReceiver {
 		add(label4, "cell 0 3");
 
 		//---- comboBoxSex ----
-		comboBoxSex.setModel(new DefaultComboBoxModel<>(new String[]{
-				"Male",
-				"Female"
+		comboBoxSex.setModel(new DefaultComboBoxModel<>(new String[] {
+			"Male",
+			"Female",
+			"Unknown"
 		}));
 		add(comboBoxSex, "cell 1 3 3 1");
 
@@ -151,14 +156,23 @@ public class ProbabilisticForm extends JPanel implements ResponseReceiver {
 		add(label6, "cell 0 5");
 		add(textFieldMotherName, "cell 1 5 3 1");
 
+		//---- label7 ----
+		label7.setText(bundle.getString("ProbabilisticForm.label7.text"));
+		add(label7, "cell 0 6");
+		add(textFieldPlaceOfBirth, "cell 1 6 3 1");
+
 		//---- buttonSearch ----
 		buttonSearch.setText(bundle.getString("ProbabilisticForm.buttonSearch.text"));
-		buttonSearch.addActionListener(e -> search());
-		add(buttonSearch, "cell 1 6");
+		buttonSearch.addActionListener(e -> {
+			search();
+			search();
+			search();
+		});
+		add(buttonSearch, "cell 1 7");
 
 		//---- buttonClear ----
 		buttonClear.setText(bundle.getString("ProbabilisticForm.buttonClear.text"));
-		add(buttonClear, "cell 2 6");
+		add(buttonClear, "cell 2 7");
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
 
@@ -175,6 +189,8 @@ public class ProbabilisticForm extends JPanel implements ResponseReceiver {
 	private JTextField textFieldDoB;
 	private JLabel label6;
 	private JTextField textFieldMotherName;
+	private JLabel label7;
+	private JTextField textFieldPlaceOfBirth;
 	private JButton buttonSearch;
 	private JButton buttonClear;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables

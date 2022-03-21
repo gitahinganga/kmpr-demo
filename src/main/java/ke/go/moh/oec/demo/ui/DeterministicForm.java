@@ -25,6 +25,8 @@ public class DeterministicForm extends JPanel implements ResponseReceiver {
 
 	private SearchResultsHolder searchResultsHolder;
 
+	private int counter;
+
 	public DeterministicForm() {
 		initComponents();
 	}
@@ -80,6 +82,7 @@ public class DeterministicForm extends JPanel implements ResponseReceiver {
 
 	@Override
 	public void onResponseReceived(boolean successful, int requestTypeId, List<Person> personList) {
+		counter++;
 		if (searchResultsHolder == null) {
 			searchResultsHolder = new SearchResultsHolder();
 		}
@@ -88,11 +91,13 @@ public class DeterministicForm extends JPanel implements ResponseReceiver {
 		} else if (requestTypeId == 1) {
 			searchResultsHolder.setMpiPersonList(personList);
 		}
-		JSplitPane splitPane = (JSplitPane) getParent();
-		if (splitPane != null) {
-			splitPane.setRightComponent(new ResultsForm(searchResultsHolder));
-		} else {
-			System.out.println("Split pane is null");
+		if (counter > 1) {
+			JSplitPane splitPane = (JSplitPane) getParent();
+			if (splitPane != null) {
+				splitPane.setRightComponent(new ResultsForm(searchResultsHolder));
+			} else {
+				System.out.println("Split pane is null");
+			}
 		}
 	}
 
